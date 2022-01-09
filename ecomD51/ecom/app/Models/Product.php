@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use function Symfony\Component\Translation\t;
 
 class Product extends Model
 {
@@ -84,5 +85,10 @@ class Product extends Model
             unlink(self::$product->image);
         }
         self::$product->delete();
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
     }
 }

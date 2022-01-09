@@ -28,13 +28,13 @@ Route::get('/contact-us', [
     'as'        => 'contact'
 ]);
 
-Route::get('/category-product', [
+Route::get('/category-product/{id}', [
     'uses'      => 'App\Http\Controllers\MollaController@categoryProduct',
     'as'        => 'category-product'
 ]);
 
 
-Route::get('/product-detail', [
+Route::get('/product-detail/{id}', [
     'uses'      => 'App\Http\Controllers\MollaController@productDetail',
     'as'        => 'product-detail'
 ]);

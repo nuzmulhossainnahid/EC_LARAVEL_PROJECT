@@ -1,7 +1,7 @@
 @extends('front.master')
 
 @section('title')
-    Product Detail
+    {{$product->name}}
 @endsection
 
 @section('body')
@@ -36,7 +36,7 @@
                             <div class="product-gallery product-gallery-vertical">
                                 <div class="row">
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
+                                        <img id="product-zoom" src="{{asset($product->image)}}" data-zoom-image="{{asset($product->image)}}" alt="product image">
 
                                         <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                             <i class="icon-arrows"></i>
@@ -44,21 +44,11 @@
                                     </figure><!-- End .product-main-image -->
 
                                     <div id="product-zoom-gallery" class="product-image-gallery">
-                                        <a class="product-gallery-item active" href="#" data-image="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg">
-                                            <img src="assets/images/products/single/1-small.jpg" alt="product side">
+                                        @foreach($sub_images as $sub_image)
+                                        <a class="product-gallery-item active" href="#" data-image="{{asset($sub_image)}}" data-zoom-image="{{asset($sub_image->image)}}">
+                                            <img src="{{asset($sub_image->image)}}" height="200" width="200" alt="">
                                         </a>
-
-                                        <a class="product-gallery-item" href="#" data-image="assets/images/products/single/2.jpg" data-zoom-image="assets/images/products/single/2-big.jpg">
-                                            <img src="assets/images/products/single/2-small.jpg" alt="product cross">
-                                        </a>
-
-                                        <a class="product-gallery-item" href="#" data-image="assets/images/products/single/3.jpg" data-zoom-image="assets/images/products/single/3-big.jpg">
-                                            <img src="assets/images/products/single/3-small.jpg" alt="product with model">
-                                        </a>
-
-                                        <a class="product-gallery-item" href="#" data-image="assets/images/products/single/4.jpg" data-zoom-image="assets/images/products/single/4-big.jpg">
-                                            <img src="assets/images/products/single/4-small.jpg" alt="product back">
-                                        </a>
+                                            @endforeach
                                     </div><!-- End .product-image-gallery -->
                                 </div><!-- End .row -->
                             </div><!-- End .product-gallery -->
@@ -66,7 +56,7 @@
 
                         <div class="col-md-6">
                             <div class="product-details">
-                                <h1 class="product-title">Dark yellow lace cut out swing dress</h1><!-- End .product-title -->
+                                <h1 class="product-title">{{$product->name}}</h1><!-- End .product-title -->
 
                                 <div class="ratings-container">
                                     <div class="ratings">
@@ -76,11 +66,11 @@
                                 </div><!-- End .rating-container -->
 
                                 <div class="product-price">
-                                    $84.00
+                                    {{$product->selling_price}}
                                 </div><!-- End .product-price -->
 
                                 <div class="product-content">
-                                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing. Sed lectus. </p>
+                                    <p>{{$product->short_description}}</p>
                                 </div><!-- End .product-content -->
 
                                 <div class="details-filter-row details-row-size">
@@ -88,10 +78,10 @@
 
                                     <div class="product-nav product-nav-thumbs">
                                         <a href="#" class="active">
-                                            <img src="assets/images/products/single/1-thumb.jpg" alt="product desc">
+                                            <img src="{{asset('/')}}assets/images/products/single/1-thumb.jpg" alt="product desc">
                                         </a>
                                         <a href="#">
-                                            <img src="assets/images/products/single/2-thumb.jpg" alt="product desc">
+                                            <img src="{{asset('/')}}}assets/images/products/single/2-thumb.jpg" alt="product desc">
                                         </a>
                                     </div><!-- End .product-nav -->
                                 </div><!-- End .details-filter-row -->

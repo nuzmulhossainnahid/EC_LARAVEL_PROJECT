@@ -53,7 +53,7 @@
                 </button>
 
                 <a href="index.html" class="logo">
-                    <img src="assets/images/demos/demo-13/logo.png" alt="Molla Logo" width="105" height="25">
+                    <img src="{{asset('/')}}assets/images/demos/demo-13/logo.png" alt="Molla Logo" width="105" height="25">
                 </a>
             </div><!-- End .header-left -->
 
@@ -202,7 +202,7 @@
                             <ul class="menu-vertical sf-arrows">
                                 @foreach($categories as $category)
                                 <li class="megamenu-container">
-                                    <a class="sf-with-ul" href="{{route('category-product')}}">{{$category->name}}</a>
+                                    <a class="sf-with-ul" href="{{route('category-product',['id'=>$category])}}">{{$category->name}}</a>
                                     <div class="megamenu">
                                         <div class="row no-gutters">
                                             <div class="col-md-8">

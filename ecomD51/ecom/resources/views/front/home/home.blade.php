@@ -245,7 +245,7 @@
                             <div class="product">
                                 <figure class="product-media">
                                     <span class="product-label label-sale">Sale</span>
-                                    <a href="{{ route('product-detail') }}">
+                                    <a href="{{ route('product-detail',['id'=>$product->id]) }}">
                                         <img src="{{ asset($product->image) }}" alt="Product image" class="product-image">
                                     </a>
 
@@ -264,7 +264,7 @@
                                     <div class="product-cat">
                                         <a href="#">Furniture</a>
                                     </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="{{ route('product-detail') }}">{{ $product->name }}</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="{{ route('product-detail',['id'=>$product->id]) }}">{{ $product->name }}</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         <span class="new-price">BDT-{{ $product->selling_price }}</span>
                                         <span class="old-price">Was BDT-{{ $product->regular_price }}</span>
