@@ -73,49 +73,25 @@
                                     <p>{{$product->short_description}}</p>
                                 </div><!-- End .product-content -->
 
-                                <div class="details-filter-row details-row-size">
-                                    <label>Color:</label>
 
-                                    <div class="product-nav product-nav-thumbs">
-                                        <a href="#" class="active">
-                                            <img src="{{asset('/')}}assets/images/products/single/1-thumb.jpg" alt="product desc">
-                                        </a>
-                                        <a href="#">
-                                            <img src="{{asset('/')}}}assets/images/products/single/2-thumb.jpg" alt="product desc">
-                                        </a>
-                                    </div><!-- End .product-nav -->
-                                </div><!-- End .details-filter-row -->
-
-                                <div class="details-filter-row details-row-size">
-                                    <label for="size">Size:</label>
-                                    <div class="select-custom">
-                                        <select name="size" id="size" class="form-control">
-                                            <option value="#" selected="selected">Select a size</option>
-                                            <option value="s">Small</option>
-                                            <option value="m">Medium</option>
-                                            <option value="l">Large</option>
-                                            <option value="xl">Extra Large</option>
-                                        </select>
-                                    </div><!-- End .select-custom -->
-
-                                    <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
-                                </div><!-- End .details-filter-row -->
-
+                                <from action="{{route('cart.add',['id'=>$product->id])}}" method="POST">
+                                    @csrf
                                 <div class="details-filter-row details-row-size">
                                     <label for="qty">Qty:</label>
                                     <div class="product-details-quantity">
-                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                        <input type="number" name="qty" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                     </div><!-- End .product-details-quantity -->
                                 </div><!-- End .details-filter-row -->
 
                                 <div class="product-details-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
 
                                     <div class="details-action-wrapper">
                                         <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                                         <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
                                     </div><!-- End .details-action-wrapper -->
                                 </div><!-- End .product-details-action -->
+                                </from>
 
                                 <div class="product-details-footer">
                                     <div class="product-cat">

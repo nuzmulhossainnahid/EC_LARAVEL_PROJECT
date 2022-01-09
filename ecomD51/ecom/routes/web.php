@@ -263,3 +263,14 @@ Route::post('/delete-product/{id}', [
 ]);
 
 //=========product route end
+
+
+Route::post('/add-to-cart/{id}', [
+    'uses' => 'App\Http\Controllers\CartController@add',
+    'as'   => 'cart.add',
+]);
+
+Route::get('/show-cart', [
+    'uses' => 'App\Http\Controllers\CartController@show',
+    'as'   => 'cart.show',
+]);
