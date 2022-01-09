@@ -1,12 +1,12 @@
-@extends('front.master)
+@extends('front.master')
 
 @section('title')
-    Shopping Card Page
-    @endsection
+    Shoping Cart Page
+@endsection
 
 @section('body')
     <main class="main">
-        <div class="page-header text-center" style="background-image: url('{{asset('/')}}assets/images/page-header-bg.jpg')">
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
                 <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
             </div><!-- End .container -->
@@ -26,7 +26,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9">
-
                             @if($message = Session::get('$message'))
                                 <h3 class="text-center text-success">{{$message}}</h3>
                             @endif
@@ -43,30 +42,30 @@
 
                                 <tbody>
                                 @foreach($cart_products as $cart_product)
-                                <tr>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="{{asset($cart_product->options->image)}}" alt="Product image">
-                                                </a>
-                                            </figure>
+                                    <tr>
+                                        <td class="product-col">
+                                            <div class="product">
+                                                <figure class="product-media">
+                                                    <a href="#">
+                                                        <img src="{{asset($cart_product->options->image)}}" alt="Product image">
+                                                    </a>
+                                                </figure>
 
-                                            <h3 class="product-title">
-                                                <a href="#">Blue utility pinafore denim dress</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$76.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                        </div><!-- End .cart-product-quantity -->
-                                    </td>
-                                    <td class="total-col">$76.00</td>
-                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                                </tr>
-                                    @endforeach
+                                                <h3 class="product-title">
+                                                    <a href="#">{{$cart_product->name}}</a>
+                                                </h3><!-- End .product-title -->
+                                            </div><!-- End .product -->
+                                        </td>
+                                        <td class="price-col">{{$cart_product->price}}</td>
+                                        <td class="quantity-col">
+                                            <div class="cart-product-quantity">
+                                                <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            </div><!-- End .cart-product-quantity -->
+                                        </td>
+                                        <td class="total-col">{{$cart_product->price*$cart_product->price}}</td>
+                                        <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table><!-- End .table table-wishlist -->
 
@@ -152,6 +151,4 @@
             </div><!-- End .cart -->
         </div><!-- End .page-content -->
     </main><!-- End .main -->
-
-
 @endsection
